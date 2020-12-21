@@ -1,4 +1,18 @@
 # @cross_origin()
+from flask import Flask, request, jsonify, render_template
+import os
+from flask_cors import CORS, cross_origin
+from com_in_ineuron_ai_utils.utils import decodeImage
+from predict import dogcat
+
+os.putenv('LANG', 'en_US.UTF-8')
+os.putenv('LC_ALL', 'en_US.UTF-8')
+
+application = Flask(__name__)
+CORS(application)
+
+
+# @cross_origin()
 class ClientApp:
     def __init__(self):
         self.filename = "inputImage.jpg"
